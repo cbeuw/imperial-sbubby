@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Imperial College Sbubby Generator</title>
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/stylesheet.css">
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/icon" href="images/favicon.ico">
+
+  <script src="scripts/script.js"></script>
+</head>
+
+<body onload="load()">
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div class="container">
+    <div class="row">
+      <div class="column title" style="font-family: StoneSansSemiBold;">
+        <h4>Imperial College London Sbubby Generator</h4>
+        <h5>Eef Freef!</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="three columns">
+        <label for="mainColour">Main Logo Colour</label>
+        <select id="mainColour" onchange="onMainColourChange()"></select>
+      </div>
+      <div class="three columns">
+        <label for="subColour">Subtext Colour</label>
+        <select id="subColour" onchange="onSubColourChange()"></select>
+      </div>
+      <div class="three columns">
+        <label for="bgColour">Background Colour</label>
+        <select id="bgColour" onchange="onBgColourChange()"></select>
+      </div>
+      <div class="three columns">
+        <label for="size">Font Size</label>
+        <div class="row">
+          <input class="six columns" style="text-align: right" type="number" min="1" value="100" id="size"
+            onchange="onSizeChange()">
+          <div class="six columns" style="margin-left:5px;margin-top:5px">px</div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <textarea class="u-full-width" style="resize:vertical" id="subtext" placeholder="Subtext"
+        onchange="onSubtextChange()" onkeyup="onSubtextChange()"></textarea>
+    </div>
+    <div class="row">
+      <div class="column" id="canvasDiv">
+      </div>
+    </div>
+
+    <!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+
+</html>

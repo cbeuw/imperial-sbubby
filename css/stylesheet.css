@@ -1,0 +1,17 @@
+@font-face {
+    font-family: 'StonSansSemiBold';
+    src: url('/fonts/ITC_Stone_Sans_Semibold.ttf');
+}
+
+:root {
+    --ImperialBlue:#003E74;
+    --PoolBlue:#00ACD7
+}
+
+.title h4 {
+    color: var(--ImperialBlue)
+}
+
+.title h5 {
+    color: var(--PoolBlue)
+}
