@@ -5,13 +5,13 @@
 
 :root {
     --ImperialBlue:#003E74;
-    --PoolBlue:#00ACD7
+    --Navy:#002147
 }
 
-.title h4 {
-    color: var(--ImperialBlue)
+a {
+    color: var(--ImperialBlue);
+    text-decoration: none
 }
-
-.title h5 {
-    color: var(--PoolBlue)
+a:hover{
+    color: var(--Navy)
 }
