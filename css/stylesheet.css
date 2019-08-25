@@ -12,6 +12,15 @@ a {
     color: var(--ImperialBlue);
     text-decoration: none
 }
+
 a:hover{
     color: var(--Navy)
+}
+
+img {
+    opacity: 20%;
+}
+
+img:hover{
+    opacity: 40%
 }
