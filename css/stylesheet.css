@@ -17,6 +17,13 @@ a:hover{
     color: var(--Navy)
 }
 
+footer{
+    text-align: center;
+    position: fixed;
+    bottom: 3%;
+    width: 100%
+}
+
 img {
     opacity: 20%
 }
