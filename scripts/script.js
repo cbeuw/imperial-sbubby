@@ -126,6 +126,7 @@ var load = function(){
 var mainFontSize
 var mainFontXHeight  // xheight in px is roughly fontsize in px/2
                     // xheight is the margin around
+var subFontSize
 
 var fillWidth // colour fill width
 var fillHeight // colour fill height
@@ -139,6 +140,7 @@ var subtext = ""
 // updates mainFontXHeight, subFontSize, fillWidth and fillHeight
 var updateTextMeasures = function(){
     mainFontXHeight = mainFontSize/2;
+    subFontSize = mainFontSize*(4.0/7.0)
 
     ctx.font = mainFontSize + "px StoneSansSemiBold"
     var mainLogoTextWidth = ctx.measureText("Imperial College").width
@@ -208,8 +210,6 @@ var updateMainLogo = function () {
 }
 
 var updateSubtext = function (){
-    subFontSize = mainFontSize*(4.0/7.0)
-
     canvas.style.letterSpacing=( -0.05 * subFontSize).toString() + "px"
     ctx = canvas.getContext("2d")
 
