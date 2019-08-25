@@ -1,6 +1,7 @@
 @font-face {
-    font-family: 'StonSansSemiBold';
-    src: url('/fonts/ITC_Stone_Sans_Semibold.ttf');
+    font-family: 'StoneSansSemiBold';
+    src: url('../fonts/ITC_Stone_Sans_Semibold.ttf') format('truetype'),
+        url('../fonts/ITC_Stone_Sans_Semibold.woff') format('woff')
 }
 
 :root {
