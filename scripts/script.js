@@ -45,6 +45,20 @@ const DarkGreen="#02893B"
 const KermitGreen="#66A40A"
 const Lime="#BBCE00"
 
+// Warm
+const Orange="#D24000"
+const Tangerine="#EC7300"
+const LemonYellow="#FFDD00"
+const Brick="#A51900"
+const Red="#DD2501"
+const Cherry="#E40043"
+const Raspberry="#9F004E"
+const MagentaPink="#C81E78"
+const Iris="#751E66"
+const Violet="#960078"
+const Plum="#321E6D"
+const Purple="#653098"
+
 var canvas
 var ctx     
 
@@ -103,7 +117,19 @@ var populateBgColour = function() {
         [Seaglass, "Seaglass"],
         [DarkGreen, "Dark Green"],
         [KermitGreen, "KermitGreen"],
-        [Lime, "Lime"]
+        [Lime, "Lime"],
+        [Orange,"Orange"],
+        [Tangerine,"Tangerine"],
+        [LemonYellow,"Lemon Yellow"],
+        [Brick,"Brick"],
+        [Red,"Red"],
+        [Cherry,"Cherry"],
+        [Raspberry,"Raspberry"],
+        [MagentaPink,"Magenta Pink"],
+        [Iris,"Iris"],
+        [Violet,"Violet"],
+        [Plum, "Plum"],
+        [Purple,"Purple"]
     ]
     for(var i=0;i<pairs.length;i++){
         select.add(makeColourOption(pairs[i][0],pairs[i][1]))
