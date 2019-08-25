@@ -24,14 +24,26 @@ createHiDPICanvas = function(w, h, ratio) {
 
 const White="#ffffff"
 const Black="#000000"
+
 const Navy="#002147"
 const ImperialBlue="#003E74"
+
 const LightGrey="#EBEEEE"
 const CoolGrey="#9D9D9D"
 const LightBlue="#D4EFFC"
+
+// Cool
+const Danube="#679ac9" // the old 2 tone
+
 const Blue="#006EAF"
 const ProcessBlue="#0091D4"
 const PoolBlue="#00ACD7"
+const DarkTeal="#0F8291"
+const Teal="#009CBC"
+const Seaglass="#379F9F"
+const DarkGreen="#02893B"
+const KermitGreen="#66A40A"
+const Lime="#BBCE00"
 
 var canvas
 var ctx     
@@ -70,6 +82,7 @@ var populateSubColour = function() {
     var select = document.getElementById("subColour")
     var pairs=[
         [ImperialBlue, "Imperial Blue"],
+        [Danube, "Danube"],
         [ProcessBlue,"Process Blue"],
         [White, "White"]
     ]
@@ -84,7 +97,13 @@ var populateBgColour = function() {
         [White, "White"],
         [Blue, "Blue"],
         [ProcessBlue, "Process Blue"],
-        [PoolBlue, "Pool Blue"]
+        [PoolBlue, "Pool Blue"],
+        [DarkTeal, "Dark Teal"],
+        [Teal, "Teal"],
+        [Seaglass, "Seaglass"],
+        [DarkGreen, "Dark Green"],
+        [KermitGreen, "KermitGreen"],
+        [Lime, "Lime"]
     ]
     for(var i=0;i<pairs.length;i++){
         select.add(makeColourOption(pairs[i][0],pairs[i][1]))
@@ -108,8 +127,8 @@ var mainFontSize
 var mainFontXHeight  // xheight in px is roughly fontsize in px/2
                     // xheight is the margin around
 
-var fillWidth
-var fillHeight
+var fillWidth // colour fill width
+var fillHeight // colour fill height
 
 var mainColour
 var subColour
@@ -117,6 +136,7 @@ var bgColour
 
 var subtext = ""
 
+// updates mainFontXHeight, subFontSize, fillWidth and fillHeight
 var updateTextMeasures = function(){
     mainFontXHeight = mainFontSize/2;
 
