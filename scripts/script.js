@@ -36,10 +36,9 @@ const PoolBlue="#00ACD7"
 var canvas
 var ctx     
 
-var initCanvas = function() {
+var drawCanvas = function(w,h) {
     var canvasDiv = document.getElementById("canvasDiv")
-    //canvas = createHiDPICanvas(fillWidth,fillHeight)
-    canvas = createHiDPICanvas(canvasDiv.offsetWidth,canvasDiv.offsetWidth)
+    canvas = createHiDPICanvas(w,h)
     canvasDiv.firstChild.remove()
     canvasDiv.appendChild(canvas)
     ctx = canvas.getContext("2d")
@@ -93,7 +92,7 @@ var populateBgColour = function() {
 }
 
 var load = function(){
-    initCanvas();
+    drawCanvas(0,0);
 
     populateMainColour()
     populateSubColour()
@@ -121,13 +120,6 @@ var subtext = ""
 var updateTextMeasures = function(){
     mainFontXHeight = mainFontSize/2;
 
-    /*
-        var mockCanvas = document.createElement("canvas")
-        var mockCtx = mockCanvas.getContext("2d")
-        mockCanvas.style.letterSpacing= (-0.06* mainFontSize).toString() + "px"
-    mockCtx.font = mainFontSize + "px StoneSansSemiBold"
-    var mainLogoTextWidth = mockCtx.measureText("Imperial College").width
-    */
     ctx.font = mainFontSize + "px StoneSansSemiBold"
     var mainLogoTextWidth = ctx.measureText("Imperial College").width
 
@@ -171,6 +163,8 @@ var onSubtextChange = function(){
 
 var updateCanvas = function() {
     updateTextMeasures();
+
+    drawCanvas(fillWidth,fillHeight)
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.fillStyle = bgColour
