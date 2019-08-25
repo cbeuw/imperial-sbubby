@@ -18,10 +18,7 @@ a:hover{
 }
 
 img {
-    opacity: 20%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto
+    opacity: 20%
 }
 
 img:hover{
