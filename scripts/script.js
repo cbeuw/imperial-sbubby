@@ -76,6 +76,8 @@ var makeColourOption = function (colour, text) {
     option.text = text
     if (colour != White) {
         option.style = "color: white; background-color:" + colour
+    } else {
+        option.style = "color: black; background-color:" + colour
     }
     return option
 }
@@ -190,17 +192,41 @@ var onSizeChange = function () {
 }
 
 var onMainColourChange = function () {
-    mainColour = document.getElementById("mainColour").value;
+    var selector = document.getElementById("mainColour")
+    var colour = selector.value;
+    selector.style.backgroundColor = colour
+    if (colour != White) {
+        selector.style.color = White
+    } else {
+        selector.style.color = Black
+    }
+    mainColour = colour
     updateCanvas();
 }
 
 var onSubColourChange = function () {
-    subColour = document.getElementById("subColour").value;
+    var selector = document.getElementById("subColour")
+    var colour = selector.value;
+    selector.style.backgroundColor = colour
+    if (colour != White) {
+        selector.style.color = White
+    } else {
+        selector.style.color = Black
+    }
+    subColour = colour
     updateCanvas();
 }
 
 var onBgColourChange = function () {
-    bgColour = document.getElementById("bgColour").value;
+    var selector = document.getElementById("bgColour")
+    var colour = selector.value;
+    selector.style.backgroundColor = colour
+    if (colour != White) {
+        selector.style.color = White
+    } else {
+        selector.style.color = Black
+    }
+    bgColour = colour
     updateCanvas();
 }
 
