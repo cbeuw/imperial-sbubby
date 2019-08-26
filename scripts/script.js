@@ -111,6 +111,8 @@ var populateBgColour = function () {
     var select = document.getElementById("bgColour")
     var pairs = [
         [White, "White"],
+        [ImperialBlue, "Imperial Blue"],
+        [Navy, "Navy"],
         [Blue, "Blue"],
         [ProcessBlue, "Process Blue"],
         [PoolBlue, "Pool Blue"],
