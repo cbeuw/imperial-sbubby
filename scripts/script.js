@@ -193,7 +193,7 @@ var updateTextMeasures = function () {
         fillHeight = mainLastLineBaselineOffset + mainFontXHeight
     } else {
         var lines = subtext.split("\n")
-        subFirstLineBaselineOffset = mainLastLineBaselineOffset + mainFontSize * (5.0 / 7.0)
+        subFirstLineBaselineOffset = mainLastLineBaselineOffset + mainFontSize * (6.0 / 7.0)
         subLastLineBaselineOffset = subFirstLineBaselineOffset + subFontSize * (lines.length - 1)
         fillHeight = subLastLineBaselineOffset + mainFontXHeight
     }
