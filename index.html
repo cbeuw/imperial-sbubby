@@ -36,11 +36,11 @@
       </div>
     </div>
     <div class="row">
-      <div class="three columns">
+      <div class="two columns">
         <label for="mainColour">Main Logo Colour</label>
         <select id="mainColour" onchange="onMainColourChange()"></select>
       </div>
-      <div class="three columns">
+      <div class="two columns">
         <label for="subColour">Subtext Colour</label>
         <select id="subColour" onchange="onSubColourChange()"></select>
       </div>
@@ -48,7 +48,7 @@
         <label for="bgColour">Background Colour</label>
         <select id="bgColour" onchange="onBgColourChange()"></select>
       </div>
-      <div class="three columns">
+      <div class="two columns">
         <label for="size">Font Size</label>
         <div class="row">
           <input class="six columns" style="text-align: right" type="number" min="1" value="100" id="size"
@@ -56,23 +56,27 @@
           <div class="six columns" style="margin-left:5px;margin-top:5px">px</div>
         </div>
       </div>
-    </div>
-    <div class="row">
-      <textarea class="u-full-width" style="resize:vertical" id="subtext" placeholder="Subtext"
-        onchange="onSubtextChange()" onkeyup="onSubtextChange()"></textarea>
-    </div>
-    <div class="row">
-      <div class="column" id="canvasDiv">
+      <div class="three columns">
+        <label for="size">Spacing Offset</label>
+        <input class="six columns" style="text-align: right" type="number" value="0" id="letterSpacingOffset"
+          onchange="onLetterSpacingOffsetChange()">
+      </div>
+      <div class="row">
+        <textarea class="u-full-width" style="resize:vertical" id="subtext" placeholder="Subtext"
+          onchange="onSubtextChange()" onkeyup="onSubtextChange()"></textarea>
+      </div>
+      <div class="row">
+        <div class="column" id="canvasDiv">
+        </div>
       </div>
     </div>
-  </div>
-  <footer>
-    <a href="https://github.com/cbeuw/imperial-sbubby">
-      <img src="images/mark-github.svg" />
-    </a>
-  </footer>
+    <footer>
+      <a href="https://github.com/cbeuw/imperial-sbubby">
+        <img src="images/mark-github.svg" />
+      </a>
+    </footer>
 
-  <!-- End Document
+    <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 </body>
 

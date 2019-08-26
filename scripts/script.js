@@ -145,6 +145,7 @@ var load = function () {
     populateSubColour()
     populateBgColour()
 
+    onLetterSpacingOffsetChange()
     onSizeChange()
     onMainColourChange()
     onSubColourChange()
@@ -154,7 +155,14 @@ var load = function () {
 var mainFontSize
 var mainFontXHeight  // xheight in px is roughly fontsize in px/2
 // xheight is the margin around
+var mainFirstLineBaselineOffset
+var mainLastLineBaselineOffset
+
 var subFontSize
+var subFirstLineBaselineOffset
+var subLastLineBaselineOffset
+
+var letterSpacingOffset = 0
 
 var fillWidth // colour fill width
 var fillHeight // colour fill height
@@ -167,29 +175,40 @@ var subtext = ""
 
 // updates mainFontXHeight, subFontSize, fillWidth and fillHeight
 var updateTextMeasures = function () {
-    mainFontXHeight = mainFontSize / 2;
     subFontSize = mainFontSize * (4.0 / 7.0)
 
+    canvas.style.letterSpacing = ((-0.05 + letterSpacingOffset) * mainFontSize).toString() + "px"
+    ctx = canvas.getContext("2d")
     ctx.font = mainFontSize + "px StoneSansSemiBold"
+
     var mainLogoTextWidth = ctx.measureText("Imperial College").width
+    mainFontXHeight = ctx.measureText("x").width; // good enough
 
-    fillWidth = mainLogoTextWidth + mainFontXHeight
+    fillWidth = mainFontXHeight + mainLogoTextWidth + mainFontXHeight
 
+    mainFirstLineBaselineOffset = mainFontXHeight * 2
+
+    mainLastLineBaselineOffset = mainFirstLineBaselineOffset + mainFontSize
     if (subtext == "") {
-        var mainLastLineBaselineOffset = mainFontSize * 2
         fillHeight = mainLastLineBaselineOffset + mainFontXHeight
     } else {
         var lines = subtext.split("\n")
-        var subFirstLineBaselineOffset = mainFontSize * 2 + mainFontSize * (5.0 / 7.0)
-        var subLastLineBaselineOffset = subFirstLineBaselineOffset + subFontSize * (lines.length - 1)
+        subFirstLineBaselineOffset = mainLastLineBaselineOffset + mainFontSize * (5.0 / 7.0)
+        subLastLineBaselineOffset = subFirstLineBaselineOffset + subFontSize * (lines.length - 1)
         fillHeight = subLastLineBaselineOffset + mainFontXHeight
     }
 }
 
 var onSizeChange = function () {
-    mainFontSize = document.getElementById("size").value;
+    mainFontSize = parseInt(document.getElementById("size").value);
     updateCanvas();
 }
+
+var onLetterSpacingOffsetChange = function () {
+    letterSpacingOffset = document.getElementById("letterSpacingOffset").value / 400.0
+    updateCanvas();
+}
+
 
 var onMainColourChange = function () {
     var selector = document.getElementById("mainColour")
@@ -249,25 +268,22 @@ var updateCanvas = function () {
 }
 
 var updateMainLogo = function () {
-    canvas.style.letterSpacing = (-0.05 * mainFontSize).toString() + "px"
+    canvas.style.letterSpacing = ((-0.05 + letterSpacingOffset) * mainFontSize).toString() + "px"
     ctx = canvas.getContext("2d")
 
     ctx.font = mainFontSize + "px StoneSansSemiBold"
     ctx.fillStyle = mainColour
 
-    ctx.textBaseline = "middle"
-    ctx.fillText("Imperial College", mainFontXHeight, mainFontXHeight * 1.5)
-    ctx.textBaseline = "alphabetic"
-    ctx.fillText("London", mainFontXHeight, mainFontSize * 2)
+    ctx.fillText("Imperial College", mainFontXHeight, mainFirstLineBaselineOffset)
+    ctx.fillText("London", mainFontXHeight, mainLastLineBaselineOffset)
 }
 
 var updateSubtext = function () {
-    canvas.style.letterSpacing = (-0.05 * subFontSize).toString() + "px"
+    canvas.style.letterSpacing = ((-0.05 + letterSpacingOffset) * subFontSize).toString() + "px"
     ctx = canvas.getContext("2d")
 
     ctx.font = subFontSize + "px StoneSansSemiBold"
     ctx.fillStyle = subColour
-    var subFirstLineBaselineOffset = mainFontSize * 2 + mainFontSize * (6.0 / 7.0)
     var lines = subtext.split("\n")
     for (var i = 0; i < lines.length; i++) {
         ctx.fillText(lines[i], mainFontXHeight, subFirstLineBaselineOffset + subFontSize * i)
