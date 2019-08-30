@@ -152,6 +152,8 @@ var load = function () {
     onMainColourChange()
     onSubColourChange()
     onBgColourChange()
+    onMaintextChange()
+    onSubtextChange()
 }
 
 var mainFontSize
@@ -173,6 +175,7 @@ var mainColour
 var subColour
 var bgColour
 
+var maintext = ""
 var subtext = ""
 
 // updates mainFontXHeight, subFontSize, fillWidth and fillHeight
@@ -190,7 +193,7 @@ var updateTextMeasures = function () {
 
     mainFirstLineBaselineOffset = mainFontXHeight * 2
 
-    mainLastLineBaselineOffset = mainFirstLineBaselineOffset + mainFontSize
+    mainLastLineBaselineOffset = mainFirstLineBaselineOffset + mainFontSize * (maintext.split("\n").length - 1)
     if (subtext == "") {
         fillHeight = mainLastLineBaselineOffset + mainFontXHeight
     } else {
@@ -251,6 +254,11 @@ var onBgColourChange = function () {
     updateCanvas();
 }
 
+var onMaintextChange = function () {
+    maintext = document.getElementById("maintext").value
+    updateCanvas()
+}
+
 var onSubtextChange = function () {
     subtext = document.getElementById("subtext").value;
     updateCanvas()
@@ -276,8 +284,10 @@ var updateMainLogo = function () {
     ctx.font = mainFontSize + "px StoneSansSemiBold"
     ctx.fillStyle = mainColour
 
-    ctx.fillText("Imperial College", mainFontXHeight, mainFirstLineBaselineOffset)
-    ctx.fillText("London", mainFontXHeight, mainLastLineBaselineOffset)
+    var lines = maintext.split("\n")
+    for (var i = 0; i < lines.length; i++) {
+        ctx.fillText(lines[i], mainFontXHeight, mainFirstLineBaselineOffset + mainFontSize * i)
+    }
 }
 
 var updateSubtext = function () {
