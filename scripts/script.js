@@ -100,6 +100,7 @@ var populateSubColour = function () {
         [ImperialBlue, "Imperial Blue"],
         [Danube, "Danube"],
         [ProcessBlue, "Process Blue"],
+        [Black, "Black"],
         [White, "White"]
     ]
     for (var i = 0; i < pairs.length; i++) {
