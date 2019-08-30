@@ -187,7 +187,7 @@ var updateTextMeasures = function () {
     ctx = canvas.getContext("2d")
     ctx.font = mainFontSize + "px StoneSansSemiBold"
 
-    var mainLogoTextWidth = ctx.measureText("Imperial College").width
+    var mainLogoTextWidth = ctx.measureText(maintext.split("\n")[0]).width
     mainFontXHeight = ctx.measureText("x").width; // good enough
 
     fillWidth = mainFontXHeight + mainLogoTextWidth + mainFontXHeight
@@ -198,9 +198,8 @@ var updateTextMeasures = function () {
     if (subtext == "") {
         fillHeight = mainLastLineBaselineOffset + mainFontXHeight
     } else {
-        var lines = subtext.split("\n")
         subFirstLineBaselineOffset = mainLastLineBaselineOffset + mainFontSize * (6.0 / 7.0)
-        subLastLineBaselineOffset = subFirstLineBaselineOffset + subFontSize * (lines.length - 1)
+        subLastLineBaselineOffset = subFirstLineBaselineOffset + subFontSize * (subtext.split("\n").length - 1)
         fillHeight = subLastLineBaselineOffset + mainFontXHeight
     }
 }
